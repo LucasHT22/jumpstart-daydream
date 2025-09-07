@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://r0hukv3k3fpc"]
+
+[ext_resource type="Script" path="res://cherry_ui.gd" id="1_xcfws"]
+[ext_resource type="Texture2D" uid="uid://b10of2rwhaj8r" path="res://cherry.svg" id="2_i4or2"]
+
+[node name="CherryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 66.0
+offset_bottom = 51.0
+script = ExtResource("1_xcfws")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.049
+offset_right = 32.0
+offset_bottom = 41.971
+texture = ExtResource("2_i4or2")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 61.0
+offset_top = -8.0
+offset_right = 90.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="Cherry" type="Sprite2D" parent="."]
+position = Vector2(25.625, 27.125)
+scale = Vector2(0.199091, 0.138531)
+texture = ExtResource("2_i4or2")

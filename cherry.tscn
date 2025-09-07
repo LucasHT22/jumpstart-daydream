@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctgub7tjwqo7a"]
+
+[ext_resource type="Texture2D" uid="uid://b10of2rwhaj8r" path="res://cherry.svg" id="1_3oeeb"]
+[ext_resource type="Script" path="res://cherry.gd" id="1_p5mtx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuapl"]
+atlas = ExtResource("1_3oeeb")
+region = Rect2(0, 0, 275, 388)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uu8ou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuapl")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_saas2"]
+radius = 34.5254
+
+[node name="cherry" type="Node2D"]
+script = ExtResource("1_p5mtx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7.5, -9.25)
+scale = Vector2(0.207273, 0.155928)
+sprite_frames = SubResource("SpriteFrames_uu8ou")
+animation = &"spin"
+autoplay = "spin"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, -6)
+shape = SubResource("CircleShape2D_saas2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
